@@ -1,0 +1,5 @@
+.env
+fita.db
+venv/
+__pycache__/
+*.pyc
