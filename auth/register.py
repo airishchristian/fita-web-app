@@ -1,6 +1,7 @@
 import streamlit as st
 import bcrypt
 from db.db import get_connection
+import datetime
 
 def register_page():
     st.title("Create an Account")
@@ -10,7 +11,7 @@ def register_page():
         first_name = st.text_input("First Name")
         last_name = st.text_input("Last Name")
         email = st.text_input("Email")
-        birth_date = st.date_input("Birthdate")
+        birth_date = st.date_input("Birthdate", min_value=datetime.date(1900,1,1), max_value=datetime.date.today())
         password = st.text_input("Password", type="password")
         submitted = st.form_submit_button("Register")
 
