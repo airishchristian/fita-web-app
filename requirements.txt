@@ -3,3 +3,4 @@ anthropic
 bcrypt
 python-dotenv
 plotly
+matplotlib

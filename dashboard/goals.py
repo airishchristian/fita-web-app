@@ -1,5 +1,5 @@
 import streamlit as st
-from auth.login import require_auth
+from auth.auth import require_auth
 from db.db import get_connection
 
 

@@ -5,6 +5,10 @@ from dashboard.dashboard import dashboard_page
 from food.food_tracker import food_tracker_page
 from dashboard.history import history_page
 from dashboard.goals import goals_page
+from db.db import init_db
+
+# Initialize database tables before anything else
+init_db()
 
 st.title("Fita 🏋️")
 st.write("Welcome to your friendly fitness tracker app!")

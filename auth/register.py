@@ -30,5 +30,6 @@ def register_page():
                     st.success("Account created! Please log in.")
                 except Exception as e:
                     st.error(f"Username or email already exists.")
+                    print(e)
                 finally:
                     con.close()
