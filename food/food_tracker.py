@@ -1,5 +1,5 @@
 import streamlit as st
-from auth.login import require_auth
+from auth.auth import require_auth
 from food.image_upload import upload_image
 from food.vision_api import identify_food
 from food.nutrition import show_nutrition

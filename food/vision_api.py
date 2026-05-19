@@ -1,12 +1,10 @@
 import base64
 import json
 from anthropic import Anthropic
-import config
-from dotenv import load_dotenv
-import os
-load_dotenv()
+from config import ANTHROPIC_API_KEY
 
-client = Anthropic(api_key=os.getenv('ANTHROPIC_API_KEY'))
+
+client = Anthropic(api_key=ANTHROPIC_API_KEY)
 
 def identify_food(image):
     # Encode image to base64
