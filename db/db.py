@@ -19,7 +19,12 @@ def init_db():
             last_name VARCHAR(255),
             email VARCHAR(255) UNIQUE NOT NULL,
             birth_date DATE,
-            password VARCHAR(255) NOT NULL
+            sex TEXT,    
+            password VARCHAR(255) NOT NULL,
+            weight REAL,
+            height REAL,
+            age INTEGER,
+            goal TEXT      
         )
     """)
 
@@ -33,7 +38,7 @@ def init_db():
             calories REAL,
             protein REAL,
             carbs REAL,
-            fat REAL,
+            fat REAL,           
             FOREIGN KEY (user_id) REFERENCES Users(user_id)
         )
     """)
@@ -50,6 +55,26 @@ def init_db():
             FOREIGN KEY (user_id) REFERENCES Users(user_id)
         )
     """)
+    # Weight Progress
+    cur.execute("""
+        CREATE TABLE IF NOT EXISTS WeightProgress (
+            progress_id INTEGER PRIMARY KEY AUTOINCREMENT,
+            user_id INTEGER NOT NULL,
+            progress_date DATE NOT NULL,
+            progress_weight REAL NOT NULL,
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+            FOREIGN KEY (user_id)
+            REFERENCES Users(user_id)
+        )
+        """)
+    try:
+        cur.execute("""
+            ALTER TABLE FoodLogs
+            ADD COLUMN meal_type TEXT DEFAULT 'Snacks'
+        """)
+    except:
+        pass
 
     con.commit()
     con.close()

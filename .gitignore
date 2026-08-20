@@ -1,5 +1,4 @@
 .env
 fita.db
-venv/
-__pycache__/
-*.pyc
+.venv
+__pycache__
